@@ -1,0 +1,260 @@
+/* 1️⃣ 폰트 설정 */
+@font-face {
+font-family: 'GowunBatang-Regular';
+src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Regular.woff')
+    format('woff');
+font-weight: normal;
+font-style: normal;
+}
+
+:root {
+--primary: #3a6ea5;
+--secondary: #e8eff7;
+--accent: #adcbe3;
+--text-dark: #333;
+--text-light: #777;
+--white: #ffffff;
+}
+
+/* 2️⃣ 기본 스타일 */
+* {
+font-family: 'GowunBatang-Regular', serif;
+box-sizing: border-box;
+}
+
+body {
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+background: linear-gradient(135deg, #f7f9fc 0%, #e8f0f8 100%);
+color: var(--text-dark);
+margin: 0;
+}
+
+/* 3️⃣ 메인 영역 */
+main {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+animation: fadeInUp 0.6s ease both;
+}
+
+@keyframes fadeInUp {
+0% {
+    opacity: 0;
+    transform: translateY(30px);
+}
+100% {
+    opacity: 1;
+    transform: translateY(0);
+}
+}
+
+/* 4️⃣ 시작 화면 */
+#start-screen {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 1.5rem;
+background-color: var(--white);
+padding: 2.5rem;
+border-radius: 16px;
+box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+width: 90%;
+max-width: 400px;
+margin: 5rem auto;
+animation: fadeInUp 0.7s ease;
+}
+
+#user-id {
+padding: 0.75rem 1rem;
+font-size: 1rem;
+border: 1px solid #ccc;
+border-radius: 8px;
+width: 100%;
+transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+#user-id:focus {
+outline: none;
+border-color: var(--primary);
+box-shadow: 0 0 0 3px rgba(58, 110, 165, 0.2);
+}
+
+#start-btn {
+padding: 0.8rem 2.2rem;
+font-size: 1rem;
+font-weight: bold;
+color: var(--white);
+background-color: var(--primary);
+border: none;
+border-radius: 10px;
+cursor: pointer;
+box-shadow: 0 4px 10px rgba(58, 110, 165, 0.15);
+transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#start-btn:hover {
+background-color: #2c5884;
+transform: translateY(-2px);
+}
+
+/* 5️⃣ 퀴즈 영역 */
+#quiz-container {
+background-color: var(--white);
+border-radius: 18px;
+padding: 2.5rem;
+box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+width: 100%;
+max-width: 650px;
+animation: fadeInUp 0.6s ease;
+}
+
+/* 진행 바 */
+#progress-bar {
+width: 100%;
+height: 12px;
+background-color: #eaecef;
+border-radius: 6px;
+margin-bottom: 1.5rem;
+overflow: hidden;
+}
+
+#progress-fill {
+height: 100%;
+width: 0%;
+background: linear-gradient(90deg, var(--primary), var(--accent));
+border-radius: 6px;
+transition: width 0.4s ease;
+}
+
+/* 제목 */
+#quiz-container h1 {
+text-align: center;
+color: var(--primary);
+margin-bottom: 1.5rem;
+letter-spacing: 1px;
+}
+
+/* 질문 */
+.question p {
+font-size: 1.3rem;
+font-weight: bold;
+color: var(--text-dark);
+margin-bottom: 1rem;
+}
+
+/* 보기 */
+.question label {
+display: block;
+margin-bottom: 0.8rem;
+padding: 0.9rem 1rem;
+border-radius: 10px;
+background-color: var(--secondary);
+cursor: pointer;
+transition: all 0.2s ease;
+border: 1px solid transparent;
+}
+
+.question input[type='radio'] {
+margin-right: 0.5rem;
+}
+
+.question label:hover {
+background-color: var(--accent);
+transform: translateX(4px);
+}
+
+.question input[type='radio']:checked + label {
+background-color: var(--primary);
+color: white;
+border-color: var(--primary);
+transform: scale(1.02);
+box-shadow: 0 3px 10px rgba(58, 110, 165, 0.25);
+}
+
+/* 다음 버튼 */
+#next-btn {
+margin-top: 2rem;
+width: 100%;
+padding: 0.9rem;
+font-size: 1rem;
+font-weight: bold;
+background-color: var(--primary);
+border: none;
+border-radius: 12px;
+color: white;
+cursor: pointer;
+transition: background-color 0.3s ease, transform 0.2s ease;
+box-shadow: 0 4px 12px rgba(58, 110, 165, 0.15);
+}
+
+#next-btn:hover {
+background-color: #2c5884;
+transform: translateY(-2px);
+}
+
+/* 결과 영역 */
+#my-score, #score {
+font-size: 1.3rem;
+text-align: center;
+margin: 1.2rem 0;
+font-weight: bold;
+color: var(--primary);
+animation: popIn 0.6s ease;
+}
+
+@keyframes popIn {
+0% { transform: scale(0.8); opacity: 0; }
+100% { transform: scale(1); opacity: 1; }
+}
+
+/* 다시 시작 버튼 */
+#restart-btn {
+display: block;
+margin: 0 auto;
+padding: 0.8rem 2.2rem;
+font-size: 1rem;
+border: none;
+border-radius: 12px;
+background-color: var(--accent);
+color: #fff;
+cursor: pointer;
+transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#restart-btn:hover {
+background-color: #8dbbdb;
+transform: translateY(-2px);
+}
+
+/* 테이블 (결과 요약용) */
+#quiz-container table {
+width: 100%;
+border-collapse: collapse;
+margin-top: 1.5rem;
+font-size: 0.95rem;
+}
+
+#quiz-container th,
+#quiz-container td {
+border: 1px solid #ddd;
+padding: 0.75rem;
+text-align: center;
+}
+
+#quiz-container th {
+background-color: var(--primary);
+color: white;
+}
+
+#quiz-container tr:nth-child(even) {
+background-color: #f9f9f9;
+}
+
+#quiz-container tr:hover {
+background-color: #f1f1f1;
+}
